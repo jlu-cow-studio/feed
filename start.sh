@@ -1,12 +1,12 @@
 #!/bin/bash
 
-IMAGE_NAME=cowstudio/user-core
-CONTAINER_NAME=user-core
+IMAGE_NAME=cowstudio/feed
+CONTAINER_NAME=feed
 
-SERVICE_NAME=cowstudio/user-core
-SERVICE_PORT=3081
+SERVICE_NAME=cowstudio/feed
+SERVICE_PORT=3085
 SERVICE_ADDRESS=cowstudio.wayne-lee.cn
-SIDECAR_PORT=4081
+SIDECAR_PORT=4085
 
 # 构建镜像
 docker build -t $IMAGE_NAME .
