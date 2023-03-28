@@ -111,7 +111,7 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 		ItemIdList: itemIdList,
 	}
 
-	log.Printf("[Feed] pack req: %v", packReq)
+	log.Printf("[Feed] pack req: %v", litter.Sdump(packReq))
 	packRes, err := cli.PackItems(ctx, packReq)
 	log.Printf("[Feed] pack res: %v, err: %v", litter.Sdump(packRes), err)
 
