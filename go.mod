@@ -3,7 +3,7 @@ module github.com/jlu-cow-studio/feed
 go 1.17
 
 require (
-	github.com/jlu-cow-studio/common v0.2.48
+	github.com/jlu-cow-studio/common v0.2.52
 	google.golang.org/grpc v1.54.0
 )
 
@@ -29,6 +29,7 @@ require (
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
+	github.com/reugn/go-streams v0.9.0 // indirect
 	github.com/segmentio/kafka-go v0.4.39 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
