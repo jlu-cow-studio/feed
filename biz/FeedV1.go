@@ -18,13 +18,17 @@ func CacheBatchFromDB(uid string, category string, cap int64) (int64, error) {
 	if historyCmd.Err() != nil {
 		return 0, historyCmd.Err()
 	}
+	historyList := historyCmd.Val()
+	if historyList == nil {
+		historyList = []string{}
+	}
 	count := new(int64)
 	tx := conn.Table("item_user").Where("category <> ?", category).Count(count)
 	if tx.Error == nil {
 		redis.DB.Set(GetTotalKey(category), *count, time.Hour)
 	}
 
-	tx = conn.Table("item_user").Order("RAND()").Where("category <> ?", category).Where("id NOT IN ?", historyCmd.Val()).Limit(int(cap)).Select("id").Find(ids)
+	tx = conn.Table("item_user").Order("RAND()").Where("category <> ?", category).Where("id NOT IN ?", historyList).Limit(int(cap)).Select("id").Find(ids)
 	if tx.Error != nil {
 		return 0, tx.Error
 	}

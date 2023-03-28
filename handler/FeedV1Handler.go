@@ -59,6 +59,8 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 		return
 	}
 
+	log.Printf("[Feed] get feed, user role: %v, scene %v", userInfo.Role, req.Scene)
+
 	offset := req.Page*req.PageSize + 1
 	cap := req.PageSize
 	ids := []string{}
