@@ -30,7 +30,7 @@ func CacheBatchFromDB(uid string, category string, cap int64) (int64, error) {
 		redis.DB.Set(GetTotalKey(category), *count, time.Hour)
 	}
 
-	tx = conn.Table("item_user").Order("RAND()").Where("category <> ?", category).Where("id NOT IN ?", historyList).Limit(int(cap)).Select("id").Find(&ids)
+	tx = conn.Table("item_user").Order("RAND()").Where("category = ?", category).Where("id NOT IN ?", historyList).Limit(int(cap)).Select("id").Find(&ids)
 	log.Printf("Cache Batch From DB, user: %v, category: %v, cap: %v\nresult: %v, error: %v", uid, category, cap, litter.Sdump(ids), tx.Error)
 
 	if tx.Error != nil {
