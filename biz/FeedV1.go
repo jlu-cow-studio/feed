@@ -2,10 +2,12 @@ package biz
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/jlu-cow-studio/common/dal/mysql"
 	"github.com/jlu-cow-studio/common/dal/redis"
+	"github.com/sanity-io/litter"
 )
 
 const CacheBatchSize = 40
@@ -64,6 +66,7 @@ func GetToDisplayList(uid, category string, offset, cap int64) ([]string, error)
 	}
 
 	getCmd := redis.DB.LRange(GetToDisplayKey(uid, category), offset, offset+cap)
+	log.Printf("Get to display list, user: %v, category: %v, offset: %v, cap: %v\nresult: %v, %v\n", uid, category, offset, cap, litter.Sdump(getCmd.Val()), getCmd.Err())
 	if getCmd.Err() != nil {
 		return nil, getCmd.Err()
 	}
