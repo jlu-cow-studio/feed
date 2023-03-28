@@ -14,6 +14,7 @@ import (
 	redis_model "github.com/jlu-cow-studio/common/model/dao_struct/redis"
 	"github.com/jlu-cow-studio/common/model/http_struct/feed"
 	"github.com/jlu-cow-studio/feed/biz"
+	"github.com/sanity-io/litter"
 )
 
 const PackServiceName = "cowstudio/pack"
@@ -110,7 +111,9 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 		ItemIdList: itemIdList,
 	}
 
-	packRes, _ := cli.PackItems(ctx, packReq)
+	log.Printf("[Feed] pack req: %v", packReq)
+	packRes, err := cli.PackItems(ctx, packReq)
+	log.Printf("[Feed] pack res: %v, err: %v", litter.Sdump(packRes), err)
 
 	res.Base = packRes.Base
 	if packRes.Base.Code != "200" {
