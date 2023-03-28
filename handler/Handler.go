@@ -1,7 +1,9 @@
 package handler
 
-import "github.com/jlu-cow-studio/common/dal/rpc/pack"
+import (
+	"github.com/jlu-cow-studio/common/dal/rpc/feed_service"
+)
 
 type Handler struct {
-	pack.UnimplementedPackServiceServer
+	feed_service.UnimplementedFeedServiceServer
 }

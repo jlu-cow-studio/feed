@@ -9,7 +9,7 @@ import (
 	"github.com/jlu-cow-studio/common/dal/mq"
 	"github.com/jlu-cow-studio/common/dal/mysql"
 	"github.com/jlu-cow-studio/common/dal/redis"
-	"github.com/jlu-cow-studio/common/dal/rpc/pack"
+	"github.com/jlu-cow-studio/common/dal/rpc/feed_service"
 	"github.com/jlu-cow-studio/common/discovery"
 	"github.com/jlu-cow-studio/feed/handler"
 	"google.golang.org/grpc"
@@ -30,7 +30,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pack.RegisterPackServiceServer(s, &handler.Handler{})
+	feed_service.RegisterFeedServiceServer(s, &handler.Handler{})
 
 	log.Printf("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {

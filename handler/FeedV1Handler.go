@@ -18,7 +18,7 @@ import (
 
 const PackServiceName = "cowstudio/pack"
 
-func (h *Handler) FeedV1(ctx context.Context, req *feed_service.GetFeedRequest) (res *feed_service.GetFeedResponse, err error) {
+func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest) (res *feed_service.GetFeedResponse, err error) {
 	res = &feed_service.GetFeedResponse{
 		Base: &base.BaseRes{
 			Message: "",
