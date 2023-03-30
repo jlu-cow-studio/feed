@@ -593,8 +593,8 @@ github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkr
 github.com/jinzhu/now v1.1.4/go.mod h1:d3SSVoowX0Lcu0IBviAWJpolVfI5UJVZZ7cO71lE/z8=
 github.com/jinzhu/now v1.1.5 h1:/o9tlHleP7gOFmsnYNz3RGnqzefHA47wQpKrrdTIwXQ=
 github.com/jinzhu/now v1.1.5/go.mod h1:d3SSVoowX0Lcu0IBviAWJpolVfI5UJVZZ7cO71lE/z8=
-github.com/jlu-cow-studio/common v0.2.54 h1:mpOr1NRx59vj0FF1JfQJUH3Nv85EVQhHIKDhsXlTK6o=
-github.com/jlu-cow-studio/common v0.2.54/go.mod h1:vQfi2FmwlFdjJi6Ks9ZJSB/ZQPf/ySIuY1vOwvo0AnQ=
+github.com/jlu-cow-studio/common v0.2.57 h1:r+2wGOEgpicmgFbFoq54k3QqFzJfOeRDyBO2ivx6D8E=
+github.com/jlu-cow-studio/common v0.2.57/go.mod h1:vQfi2FmwlFdjJi6Ks9ZJSB/ZQPf/ySIuY1vOwvo0AnQ=
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
 github.com/jstemmer/go-junit-report v0.9.1/go.mod h1:Brl9GWCQeLvo8nXZwPNNblvFj/XSXhF0NWZEnDohbsk=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=

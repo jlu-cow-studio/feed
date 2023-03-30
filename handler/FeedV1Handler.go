@@ -107,7 +107,7 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 		}
 	}
 
-	packReq := &pack.PackItemsReq{
+	packReq := &pack.PackItemsForFeedReq{
 		Base: &base.BaseReq{
 			Token: req.Base.Token,
 			Logid: req.Base.Logid,
@@ -116,7 +116,7 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 	}
 
 	log.Printf("[Feed] pack req: %v", litter.Sdump(packReq))
-	packRes, err := cli.PackItems(ctx, packReq)
+	packRes, err := cli.PackItemsForFeed(ctx, packReq)
 	log.Printf("[Feed] pack res: %v, err: %v", litter.Sdump(packRes), err)
 
 	res.Base = packRes.Base

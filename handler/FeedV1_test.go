@@ -21,7 +21,7 @@ func TestGetFeed(t *testing.T) {
 	mq.Init()
 	req := &feed_service.GetFeedRequest{
 		Base: &base.BaseReq{
-			Token: "7f9a2748-9cf3-47d4-b69d-cca7d09141c4",
+			Token: "432cea26-2b77-4a42-84af-f9b52a93eb2e",
 			Logid: "",
 		},
 		Scene:    "cattle_product",
