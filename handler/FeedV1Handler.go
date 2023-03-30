@@ -47,7 +47,7 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 	if err = json.Unmarshal([]byte(cmd.Val()), userInfo); err != nil {
 		res.Base.Message = err.Error()
 		res.Base.Code = "401"
-		log.Printf("[AddItem] Unmarshal token error: %v", err)
+		log.Printf("[Feed] Unmarshal token error: %v", err)
 		return
 	}
 	log.Printf("[Feed] Unmarshal token success, userinfo: %v", userInfo)
@@ -81,6 +81,10 @@ func (h *Handler) GetFeed(ctx context.Context, req *feed_service.GetFeedRequest)
 		return
 	}
 
+	//塞回history
+	biz.SetHistory(userInfo.Uid, req.Scene, ids)
+
+	//信息打包
 	conn, err := rpc.GetConn(PackServiceName)
 	if err != nil {
 		res.Base.Message = "get rpc conn failed"
