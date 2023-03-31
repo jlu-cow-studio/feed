@@ -6,12 +6,20 @@ import (
 	"log"
 
 	"github.com/jlu-cow-studio/common/dal/redis"
+	"github.com/jlu-cow-studio/common/dal/rpc/base"
+	"github.com/jlu-cow-studio/common/dal/rpc/feed_service"
 	redis_model "github.com/jlu-cow-studio/common/model/dao_struct/redis"
 	"github.com/jlu-cow-studio/common/model/http_struct/feed"
 	"github.com/jlu-cow-studio/feed/biz"
 )
 
-func (h *Handler) FeedV1Reset(ctx context.Context, req *feed.ResetFeedReq) (res *feed.ResetFeedRes, err error) {
+func (h *Handler) FeedV1Reset(ctx context.Context, req *feed_service.ResetFeedRequest) (res *feed_service.ResetFeedResponse, err error) {
+	res = &feed_service.ResetFeedResponse{
+		Base: &base.BaseRes{
+			Message: "",
+			Code:    "",
+		},
+	}
 
 	// 获取 token
 	token := req.Base.Token
@@ -50,6 +58,9 @@ func (h *Handler) FeedV1Reset(ctx context.Context, req *feed.ResetFeedReq) (res 
 		log.Printf("[Feed] reset cache failed: %v", err)
 		return
 	}
+
+	res.Base.Message = ""
+	res.Base.Code = "200"
 
 	return
 }
