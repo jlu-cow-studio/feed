@@ -5,7 +5,7 @@ CONTAINER_NAME=feed
 
 SERVICE_NAME=cowstudio/feed
 SERVICE_PORT=3085
-SERVICE_ADDRESS=cowstudio.wayne-lee.cn
+SERVICE_ADDRESS=$(curl -s http://ipecho.net/plain)
 SIDECAR_PORT=4085
 
 # 构建镜像
